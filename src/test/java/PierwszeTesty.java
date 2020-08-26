@@ -10,28 +10,22 @@ import org.openqa.selenium.support.ui.Select;
 public class PierwszeTesty {
 
     private WebDriver driver;
-
-    // @Before - tag mówiący nam o ty, że wszystko w metodzie setUP musi być wykonane przed uruchomieniem testu.
+    
     @Before
     public void setUp() {
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
     }
 
-    // @After - uruchamia się zawsze po zakończeniu testu.
     @After
     public void tearDown() {
-        // quit - to komenda do zamknięcia przeglądarki.
         driver.quit();
     }
 
-    // @Test - jest to tag, który mówi nam, że metoda testCase1 jest metodą testową.
     @Ignore
     @Test
     public void testCase1() {
-        // metoda get otwiera nam adres internetowy
         driver.get("https://www.google.com/");
-        // metoda sendKeys wpisuje text do jakiegoś pola
         driver.findElement(By.name("q")).sendKeys("test");
     }
 
